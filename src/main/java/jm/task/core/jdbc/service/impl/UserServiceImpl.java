@@ -1,7 +1,7 @@
 package jm.task.core.jdbc.service.impl;
 
 import jm.task.core.jdbc.dao.UserDao;
-import jm.task.core.jdbc.dao.impl.UserDaoJDBCImpl;
+import jm.task.core.jdbc.dao.impl.UserDaoHibernateImpl;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 
@@ -9,8 +9,7 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
-    private UserDao userDao = new UserDaoJDBCImpl();
-
+    private final UserDao userDao = new UserDaoHibernateImpl();
 
     @Override
     public void saveUser(String name, String lastName, byte age) {
