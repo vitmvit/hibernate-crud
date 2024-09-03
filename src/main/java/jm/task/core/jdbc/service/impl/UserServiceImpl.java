@@ -9,8 +9,7 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
-    private UserDao userDao = new UserDaoJDBCImpl();
-
+    private final UserDao userDao = new UserDaoJDBCImpl();
 
     @Override
     public void saveUser(String name, String lastName, byte age) {
