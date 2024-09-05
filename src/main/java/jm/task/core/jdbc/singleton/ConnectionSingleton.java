@@ -1,4 +1,4 @@
-package jm.task.core.jdbc.connection;
+package jm.task.core.jdbc.singleton;
 
 import java.sql.Connection;
 import java.util.Optional;

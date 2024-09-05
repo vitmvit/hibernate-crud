@@ -32,6 +32,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.close();
             log.log(Level.INFO, "UserDaoHibernateImpl: " + name + " add to database");
         } catch (Exception ex) {
+            log.log(Level.SEVERE, "UserDaoHibernateImpl saveUser: " + ex);
             throw new OperationException("Save user error: " + ex);
         }
     }
@@ -48,6 +49,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.close();
             log.log(Level.INFO, "UserDaoHibernateImpl: remove user with id=" + id);
         } catch (Exception ex) {
+            log.log(Level.SEVERE, "UserDaoHibernateImpl removeUserById: " + ex);
             throw new OperationException("Remove user error: " + ex);
         }
     }
@@ -64,6 +66,7 @@ public class UserDaoHibernateImpl implements UserDao {
             }
             return userList;
         } catch (Exception ex) {
+            log.log(Level.SEVERE, "UserDaoHibernateImpl getAllUsers: " + ex);
             throw new OperationException("Find users error: " + ex);
         }
     }
@@ -76,6 +79,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.getTransaction().commit();
             log.log(Level.INFO, "UserDaoHibernateImpl: create table");
         } catch (Exception ex) {
+            log.log(Level.SEVERE, "UserDaoHibernateImpl createUsersTable: " + ex);
             throw new OperationException("Create table error: " + ex);
         }
     }
@@ -88,6 +92,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.getTransaction().commit();
             log.log(Level.INFO, "UserDaoHibernateImpl: drop table");
         } catch (Exception ex) {
+            log.log(Level.SEVERE, "UserDaoHibernateImpl dropUsersTable: " + ex);
             throw new OperationException("Drop table error: " + ex);
         }
     }
@@ -101,6 +106,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.close();
             log.log(Level.INFO, "UserDaoHibernateImpl: clean table");
         } catch (Exception ex) {
+            log.log(Level.SEVERE, "UserDaoHibernateImpl cleanUsersTable: " + ex);
             throw new OperationException("Clean table error: " + ex);
         }
     }

@@ -1,6 +1,7 @@
 package jm.task.core.jdbc.connection;
 
 import jm.task.core.jdbc.config.DatabaseConfig;
+import jm.task.core.jdbc.singleton.ConnectionSingleton;
 
 import java.sql.Connection;
 import java.util.Map;
