@@ -22,7 +22,7 @@ public class DatabaseConnector {
             Class.forName(driver).getDeclaredConstructor().newInstance();
             return DriverManager.getConnection(url, username, password);
         } catch (Exception ex) {
-            System.out.println("Error create connection");
+            System.out.println("Error create connection: " + ex);
         }
         return null;
     }

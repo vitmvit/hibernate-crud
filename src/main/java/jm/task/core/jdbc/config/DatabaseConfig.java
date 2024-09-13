@@ -27,11 +27,14 @@ public class DatabaseConfig {
         } catch (IOException e) {
             throw new NotFoundException(SOLUTION_CONFIG + " not found!");
         }
-        Map<String, String> map = new HashMap<>(4);
+        Map<String, String> map = new HashMap<>(7);
         map.put("driver", (String) properties.get("driver"));
         map.put("url", (String) properties.get("url"));
         map.put("username", (String) properties.get("username"));
         map.put("password", (String) properties.get("password"));
+        map.put("dialect", (String) properties.get("dialect"));
+        map.put("show_sql", (String) properties.get("show_sql"));
+        map.put("context_class", (String) properties.get("context_class"));
         return map;
     }
 
