@@ -29,7 +29,6 @@ public class UserDaoHibernateImpl implements UserDao {
             User user = new User(name, lastName, age);
             session.save(user);
             session.getTransaction().commit();
-            session.close();
             log.log(Level.INFO, "UserDaoHibernateImpl: " + name + " add to database");
         } catch (Exception ex) {
             log.log(Level.SEVERE, "UserDaoHibernateImpl saveUser: " + ex);
@@ -46,7 +45,6 @@ public class UserDaoHibernateImpl implements UserDao {
                 session.delete(user);
             }
             session.getTransaction().commit();
-            session.close();
             log.log(Level.INFO, "UserDaoHibernateImpl: remove user with id=" + id);
         } catch (Exception ex) {
             log.log(Level.SEVERE, "UserDaoHibernateImpl removeUserById: " + ex);
@@ -60,7 +58,6 @@ public class UserDaoHibernateImpl implements UserDao {
             session.beginTransaction();
             List<User> userList = session.createQuery(GET_ALL_USERS_HQL, User.class).list();
             session.getTransaction().commit();
-            session.close();
             for (var item : userList) {
                 log.log(Level.INFO, "UserDaoHibernateImpl: find user " + item.toString());
             }
@@ -103,7 +100,6 @@ public class UserDaoHibernateImpl implements UserDao {
             session.beginTransaction();
             session.createQuery(CLEAN_TABLE_HQL).executeUpdate();
             session.getTransaction().commit();
-            session.close();
             log.log(Level.INFO, "UserDaoHibernateImpl: clean table");
         } catch (Exception ex) {
             log.log(Level.SEVERE, "UserDaoHibernateImpl cleanUsersTable: " + ex);
